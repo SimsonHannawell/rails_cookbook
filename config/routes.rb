@@ -7,4 +7,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Health check (optional, safe to leave)
+  resources :categories, only: [:index, :show, :new, :create]
+
+
+  # Define routes for categories with nested bookmarks
+  resources :categories do
+    resources :bookmarks, only: [:new, :create]
+  end
+
+  resources :bookmarks, only: [:destroy]
+
+
 end

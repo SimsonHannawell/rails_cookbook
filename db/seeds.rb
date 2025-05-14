@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Recipe.create!(
+  name: "Spaghetti",
+  description: "Classic Italian pasta",
+  image_url: "https://example.com/image.jpg",
+  rating: 4.5
+)

@@ -11,6 +11,13 @@
   </head>
 
   <body>
+
+    <%= link_to "All Categories", categories_path %>
+    <%= link_to "New Category", new_category_path %>
+    <%= link_to "Back", categories_path %>
+
+
     <%= yield %>
+
   </body>
 </html>

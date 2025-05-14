@@ -1,0 +1,8 @@
+<h1> <%= @category.name %> </h1>
+
+<% @category.recipes.each do |recipe| %>
+  <p>
+    <%= recipe.name %> |
+    <%= link_to "Delete", bookmark_path(recipe.bookmarks.find_by(category: @category)), method: :delete, data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
