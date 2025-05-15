@@ -1,8 +1,38 @@
-<h1> <%= @category.name %> </h1>
+<h1><%= @category.name %></h1>
 
-<% @category.recipes.each do |recipe| %>
-  <p>
-    <%= recipe.name %> |
-    <%= link_to "Delete", bookmark_path(recipe.bookmarks.find_by(category: @category)), method: :delete, data: { confirm: "Are you sure?" } %>
-  </p>
-<% end %>
+<h2>Recipes:</h2>
+<ul>
+  <% @category.recipes.each do |recipe| %>
+    <li>
+      <%= recipe.name %> |
+      <%= link_to "Delete", bookmark_path(@category.bookmarks.find_by(recipe: recipe)), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a Recipe to this Category", new_category_bookmark_path(@category), class: "btn btn-success" %>
+
+<%= link_to "Back to All Categories", categories_path, class: "btn btn-secondary" %>
+
+
+<div class="banner">
+  <div class="container">
+    <h1><%= @category.name %></h1>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <% @category.recipes.each do |recipe| %>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="<%= recipe.image_url || 'https://via.placeholder.com/150' %>" class="card-img-top">
+          <div class="card-body">
+            <h5><%= recipe.name %></h5>
+            <p><%= recipe.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

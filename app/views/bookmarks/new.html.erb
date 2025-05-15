@@ -1,7 +1,10 @@
-<h2>Add Recipe to <%= @category.name %></h2>
+
+<h1>Add a Recipe to <%= @category.name %></h1>
 
 <%= simple_form_for [@category, @bookmark] do |f| %>
-  <%= f.input :recipe_id, collection: Recipe.all %>
+  <%= f.input :recipe_id, collection: Recipe.all, prompt: "Select a recipe" %>
   <%= f.input :comment %>
   <%= f.button :submit %>
 <% end %>
+
+<%= link_to "Back to Category", category_path(@category), class: "btn btn-secondary" %>
