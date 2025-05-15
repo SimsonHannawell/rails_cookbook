@@ -11,26 +11,19 @@
     <%= javascript_include_tag "application", type: "module", "data-turbo-track": "reload", defer: true %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" crossorigin="anonymous">
-
-
   </head>
 
   <body>
+    <!-- Global Navigation -->
+    <nav>
+      <%= link_to "Home", root_path %> |
+      <%= link_to "All Categories", categories_path %> |
+      <%= link_to "Add Category", new_category_path %>
+    </nav>
 
-  <nav>
-  <%= link_to "Home", root_path %> |
-  <%= link_to "All Categories", categories_path %> |
-  <%= link_to "Add Category", new_category_path %>
-</nav>
-
-
-    <%= link_to "All Categories", categories_path %>
-    <%= link_to "New Category", new_category_path %>
-    <%= link_to "Back", categories_path %>
-    <%= render "shared/navbar" %>
-
-
-    <%= yield %>
-
+    <!-- Page-specific content goes here -->
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
